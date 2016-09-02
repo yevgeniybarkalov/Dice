@@ -7,7 +7,7 @@
 */
 
 import java.util.*;
-Die[] dice = new Die[9];
+Die[][] dice = new Die[3][3];
 public enum Face
 {
 	ONE,TWO,THREE,FOUR,FIVE,SIX
@@ -21,8 +21,8 @@ void setup()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			dice[i+j] = new Die(100+(i*100),100+(j*100));
-			System.out.println(i);
+			dice[i][j] = new Die(100+(i*100),100+(j*100));
+
 		}
 	}
 	noLoop();
@@ -33,18 +33,30 @@ void draw()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			dice[i+j].show();
+			dice[i][j].show();
 		}
 	}
 }
 void mousePressed()
 {
-	System.out.println("'Ello, wassup?");
+	System.out.println("'Ello, wassup? and " + Math.random());
+	boolean in = false;
+	int a = 0,b = 0;
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			if (dice[i][j].contain(mouseX,mouseY))
+			{
+				a = i;
+				b = j;
+				in = true;
+			}
+	if (in)
+		dice[a][b].roll();
 	redraw();
 }
 class Die //models one single dice cube
 {
-	final int SIZE = 100;
+	final int SIZE = 75;
 	int X,Y;
 	Face face;
 	Die(int X, int Y) //constructor
@@ -143,5 +155,18 @@ class Die //models one single dice cube
 				break;
 			}
 		}
+	}
+
+	boolean contain (int a, int b)
+	{
+		boolean x = false, y = false;
+		System.out.println(X + " < " + a + " < " + (X+50));
+		System.out.println(Y + " < " + a + " < " + (Y+50));
+		System.out.println();
+		if (a >= X && a <= X+50)
+			x = true;
+		if (b >= Y && b <= Y+50)
+			y = true;
+		return (x&&y);
 	}
 }
