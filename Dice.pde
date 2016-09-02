@@ -39,7 +39,6 @@ void draw()
 }
 void mousePressed()
 {
-	System.out.println("'Ello, wassup? and " + Math.random());
 	boolean in = false;
 	int a = 0,b = 0;
 	for (int i = 0; i < 3; i++)
@@ -67,40 +66,46 @@ class Die //models one single dice cube
 	}
 	void roll()
 	{
-		int random = (int)(Math.random()*6);
-		switch (random)
+		Face newFace = Face.ONE;
+		do
 		{
-			case 0:
+			int random = (int)(Math.random()*6);
+			switch (random)
 			{
-				face = Face.ONE;
-				break;
-			}
-			case 1:
-			{
-				face = Face.TWO;
-				break;
-			}
-			case 2:
-			{
-				face = Face.THREE;
-				break;
-			}
-			case 3:
-			{
-				face = Face.FOUR;
-				break;
-			}
-			case 4:
-			{
-				face = Face.FIVE;
-				break;
-			}
-			case 5:
-			{
-				face = Face.SIX;
-				break;
+				case 0:
+				{
+					newFace = Face.ONE;
+					break;
+				}
+				case 1:
+				{
+					newFace = Face.TWO;
+					break;
+				}
+				case 2:
+				{
+					newFace = Face.THREE;
+					break;
+				}
+				case 3:
+				{
+					newFace = Face.FOUR;
+					break;
+				}
+				case 4:
+				{
+					newFace = Face.FIVE;
+					break;
+				}
+				case 5:
+				{
+					newFace = Face.SIX;
+					break;
+				}
 			}
 		}
+		while (newFace.equals(face));
+		face = newFace;
 	}
 	void show()
 	{
@@ -160,9 +165,6 @@ class Die //models one single dice cube
 	boolean contain (int a, int b)
 	{
 		boolean x = false, y = false;
-		System.out.println(X + " < " + a + " < " + (X+50));
-		System.out.println(Y + " < " + a + " < " + (Y+50));
-		System.out.println();
 		if (a >= X && a <= X+50)
 			x = true;
 		if (b >= Y && b <= Y+50)
