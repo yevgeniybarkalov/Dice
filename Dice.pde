@@ -8,6 +8,7 @@
 
 import java.util.*;
 Die[][] dice = new Die[3][3];
+PFont f;
 public enum Face
 {
 	ONE,TWO,THREE,FOUR,FIVE,SIX
@@ -25,10 +26,12 @@ void setup()
 
 		}
 	}
+	f = createFont("Arial",50,true);
 	noLoop();
 }
 void draw()
 {
+	background(0,255,0);
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -36,6 +39,19 @@ void draw()
 			dice[i][j].show();
 		}
 	}
+	textFont(f,16);
+  	fill(0);
+  	int sum = 0;
+  	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			sum += dice[i][j].value();
+		}
+	}
+  	textAlign(CENTER);
+  	textSize(50);
+  	text("The total be " + sum,250,50);
 }
 void mousePressed()
 {
@@ -63,6 +79,7 @@ class Die //models one single dice cube
 		this.X = X;
 		this.Y = Y;
 		face = Face.ONE;
+		roll();
 	}
 	void roll()
 	{
@@ -165,10 +182,45 @@ class Die //models one single dice cube
 	boolean contain (int a, int b)
 	{
 		boolean x = false, y = false;
-		if (a >= X && a <= X+50)
+		if (a >= X && a <= X+SIZE)
 			x = true;
-		if (b >= Y && b <= Y+50)
+		if (b >= Y && b <= Y+SIZE)
 			y = true;
 		return (x&&y);
+	}
+
+	int value ()
+	{
+		switch (face)
+		{
+			case ONE:
+			{
+				return 1;
+			}
+			case TWO:
+			{
+				return 2;
+			}
+			case THREE:
+			{
+				return 3;
+			}
+			case FOUR:
+			{
+				return 4;
+			}
+			case FIVE:
+			{
+				return 5;
+			}
+			case  SIX:
+			{
+				return 6;
+			}
+			default:
+			{
+				return 0;
+			}
+		}
 	}
 }
