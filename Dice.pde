@@ -70,7 +70,7 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	final int SIZE = 75;
+	final int dieSIZE = 75;
 	int X,Y;
 	Face face;
 	Die(int X, int Y) //constructor
@@ -126,53 +126,53 @@ class Die //models one single dice cube
 	void showDie()
 	{
 		fill (255,255,255);
-		rect(X, Y, SIZE, SIZE);
+		rect(X, Y, dieSIZE, dieSIZE);
 		fill (0,0,0);
 		switch (face)
 		{
 			case ONEf:
 			{
-				ellipse(X+SIZE/2, Y+SIZE/2, 20, 20);
+				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
 				break;
 			}
 			case TWOf:
 			{
-				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
 				break;
 			}
 			case THREEf:
 			{
-				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/2, Y+SIZE/2, 20, 20);
-				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
+				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
 				break;
 			}
 			case FOURf:
 			{
-				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
-				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
-				ellipse(X+(SIZE*3/4), Y+(SIZE*3/4), 20, 20);
+				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
 				break;
 			}
 			case FIVEf:
 			{
-				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
-				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
-				ellipse(X+(SIZE*3/4), Y+(SIZE*3/4), 20, 20);
-				ellipse(X+SIZE/2, Y+SIZE/2, 10, 10);
+				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 10, 10);
 				break;
 			}
 			case SIXf:
 			{
-				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
-				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/2, Y+SIZE/4, 20, 20);
-				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
-				ellipse(X+(SIZE*3/4), Y+(SIZE*3/4), 20, 20);
-				ellipse(X+SIZE/2,Y+(SIZE*3/4),20,20);
+				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/2, Y+dieSIZE/4, 20, 20);
+				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+				ellipse(X+dieSIZE/2,Y+(dieSIZE*3/4),20,20);
 				break;
 			}
 		}
@@ -181,9 +181,9 @@ class Die //models one single dice cube
 	boolean contain (int a, int b)
 	{
 		boolean inX = false, inY = false;
-		if (a >= X && a <= X+SIZE)
+		if (a >= X && a <= X+dieSIZE)
 			inX = true;
-		if (b >= Y && b <= Y+SIZE)
+		if (b >= Y && b <= Y+dieSIZE)
 			inY = true;
 		return (inX&&inY);
 	}
