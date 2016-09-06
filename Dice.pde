@@ -181,12 +181,12 @@ class Die //models one single dice cube
 
 	boolean contain (int a, int b)
 	{
-		boolean x = false, y = false;
+		boolean inX = false, inY = false;
 		if (a >= X && a <= X+SIZE)
-			x = true;
+			inX = true;
 		if (b >= Y && b <= Y+SIZE)
-			y = true;
-		return (x&&y);
+			inY = true;
+		return (inX&&inY);
 	}
 
 	int value ()
