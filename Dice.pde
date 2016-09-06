@@ -85,8 +85,8 @@ class Die //models one single dice cube
 		Face newFace = Face.ONEf;
 		do
 		{
-			int random = (int)(Math.random()*6);
-			switch (random)
+			int randoM = (int)(Math.random()*6);
+			switch (randoM)
 			{
 				case 0:
 				{
