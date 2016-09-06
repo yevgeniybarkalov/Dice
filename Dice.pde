@@ -11,7 +11,7 @@ Die[][] dice = new Die[3][3];
 PFont f;
 public enum Face
 {
-	ONE,TWO,THREE,FOUR,FIVE,SIX
+	ONEf,TWOf,THREEf,FOURf,FIVEf,SIXf
 }
 
 void setup()
@@ -78,12 +78,12 @@ class Die //models one single dice cube
 	{
 		this.X = X;
 		this.Y = Y;
-		face = Face.ONE;
+		face = Face.ONEf;
 		roll();
 	}
 	void roll()
 	{
-		Face newFace = Face.ONE;
+		Face newFace = Face.ONEf;
 		do
 		{
 			int random = (int)(Math.random()*6);
@@ -91,32 +91,32 @@ class Die //models one single dice cube
 			{
 				case 0:
 				{
-					newFace = Face.ONE;
+					newFace = Face.ONEf;
 					break;
 				}
 				case 1:
 				{
-					newFace = Face.TWO;
+					newFace = Face.TWOf;
 					break;
 				}
 				case 2:
 				{
-					newFace = Face.THREE;
+					newFace = Face.THREEf;
 					break;
 				}
 				case 3:
 				{
-					newFace = Face.FOUR;
+					newFace = Face.FOURf;
 					break;
 				}
 				case 4:
 				{
-					newFace = Face.FIVE;
+					newFace = Face.FIVEf;
 					break;
 				}
 				case 5:
 				{
-					newFace = Face.SIX;
+					newFace = Face.SIXf;
 					break;
 				}
 			}
@@ -131,25 +131,25 @@ class Die //models one single dice cube
 		fill (0,0,0);
 		switch (face)
 		{
-			case ONE:
+			case ONEf:
 			{
 				ellipse(X+SIZE/2, Y+SIZE/2, 20, 20);
 				break;
 			}
-			case TWO:
+			case TWOf:
 			{
 				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
 				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
 				break;
 			}
-			case THREE:
+			case THREEf:
 			{
 				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
 				ellipse(X+SIZE/2, Y+SIZE/2, 20, 20);
 				ellipse(X+SIZE/4, Y+(SIZE*3/4), 20, 20);
 				break;
 			}
-			case FOUR:
+			case FOURf:
 			{
 				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
 				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
@@ -157,7 +157,7 @@ class Die //models one single dice cube
 				ellipse(X+(SIZE*3/4), Y+(SIZE*3/4), 20, 20);
 				break;
 			}
-			case FIVE:
+			case FIVEf:
 			{
 				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
 				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
@@ -166,7 +166,7 @@ class Die //models one single dice cube
 				ellipse(X+SIZE/2, Y+SIZE/2, 10, 10);
 				break;
 			}
-			case SIX:
+			case SIXf:
 			{
 				ellipse(X+SIZE/4, Y+SIZE/4, 20, 20);
 				ellipse(X+(SIZE*3/4), Y+SIZE/4, 20, 20);
@@ -193,27 +193,27 @@ class Die //models one single dice cube
 	{
 		switch (face)
 		{
-			case ONE:
+			case ONEf:
 			{
 				return 1;
 			}
-			case TWO:
+			case TWOf:
 			{
 				return 2;
 			}
-			case THREE:
+			case THREEf:
 			{
 				return 3;
 			}
-			case FOUR:
+			case FOURf:
 			{
 				return 4;
 			}
-			case FIVE:
+			case FIVEf:
 			{
 				return 5;
 			}
-			case  SIX:
+			case  SIXf:
 			{
 				return 6;
 			}
