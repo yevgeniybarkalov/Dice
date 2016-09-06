@@ -23,7 +23,6 @@ void setup()
 		for (int j = 0; j < 3; j++)
 		{
 			dice[i][j] = new Die(100+(i*100),100+(j*100));
-
 		}
 	}
 	f = createFont("Arial",50,true);
@@ -36,7 +35,7 @@ void draw()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			dice[i][j].show();
+			dice[i][j].showDie();
 		}
 	}
 	textFont(f,16);
@@ -124,7 +123,7 @@ class Die //models one single dice cube
 		while (newFace.equals(face));
 		face = newFace;
 	}
-	void show()
+	void showDie()
 	{
 		fill (255,255,255);
 		rect(X, Y, SIZE, SIZE);
