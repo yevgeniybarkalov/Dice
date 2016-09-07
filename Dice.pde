@@ -1,10 +1,6 @@
 import java.util.*;
 Die[][] dice = new Die[3][3];
 PFont thisFont;
-public enum Face
-{
-	ONEf,TWOf,THREEf,FOURf,FIVEf,SIXf
-}
 
 void setup()
 {
@@ -23,9 +19,6 @@ void setup()
 void draw()
 {
 	background(0,255,0);
-	boolean tru = true;
-	if (tru)
-		return;
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -49,9 +42,6 @@ void draw()
 }
 void mousePressed()
 {
-	boolean tru = true;
-	if (tru)
-		return;
 	boolean inDie = false;
 	int a = 0,b = 0;
 	for (int i = 0; i < 3; i++)
@@ -70,17 +60,17 @@ class Die //models one single dice cube
 {
 	final int dieSIZE = 75;
 	int myX,myY;
-	Face face;
+	int face;
 	Die(int a, int b) //constructor
 	{
 		myX = a;
 		myY = b;
-		face = Face.ONEf;
+		face = 1;
 		roll();
 	}
 	void roll()
 	{
-		Face newFace = Face.ONEf;
+		int newFace = 1;
 		do
 		{
 			int randoM = (int)(Math.random()*6);
@@ -88,37 +78,37 @@ class Die //models one single dice cube
 			{
 				case 0:
 				{
-					newFace = Face.ONEf;
+					newFace = 1;
 					break;
 				}
 				case 1:
 				{
-					newFace = Face.TWOf;
+					newFace = 2;
 					break;
 				}
 				case 2:
 				{
-					newFace = Face.THREEf;
+					newFace = 3;
 					break;
 				}
 				case 3:
 				{
-					newFace = Face.FOURf;
+					newFace = 4;
 					break;
 				}
 				case 4:
 				{
-					newFace = Face.FIVEf;
+					newFace = 5;
 					break;
 				}
 				case 5:
 				{
-					newFace = Face.SIXf;
+					newFace = 6;
 					break;
 				}
 			}
 		}
-		while (newFace.equals(face));
+		while (newFace == face);
 		face = newFace;
 	}
 	void showDie()
@@ -126,27 +116,27 @@ class Die //models one single dice cube
 		fill (255,255,255);
 		rect(myX, myY, dieSIZE, dieSIZE);
 		fill (0,0,0);
-		if (face == Face.ONEf)
+		if (face == 1)
 			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 20, 20);
-		else if (face == Face.TWOf)
+		else if (face == 2)
 		{
 			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
 			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
 		}
-		else if (face == Face.THREEf)
+		else if (face == 3)
 		{
 			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
 			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 20, 20);
 			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
 		}
-		else if (face == Face.FOURf)
+		else if (face == 4)
 		{
 			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
 			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
 			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
 			ellipse(myX+(dieSIZE*3/4), myY+(dieSIZE*3/4), 20, 20);
 		}
-		else if (face == Face.FIVEf)
+		else if (face == 5)
 		{
 			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
 			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
@@ -154,7 +144,7 @@ class Die //models one single dice cube
 			ellipse(myX+(dieSIZE*3/4), myY+(dieSIZE*3/4), 20, 20);
 			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 10, 10);
 		}
-		else if (face == Face.SIXf)
+		else if (face == 6)
 		{
 			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
 			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
@@ -177,17 +167,17 @@ class Die //models one single dice cube
 
 	int value ()
 	{
-		if (face == Face.ONEf)
+		if (face == 1)
 			return 1;
-		else if (face == Face.TWOf)
+		else if (face == 2)
 			return 2;
-		else if (face == Face.THREEf)
+		else if (face == 3)
 			return 3;
-		else if (face == Face.FOURf)
+		else if (face == 4)
 			return 4;
-		else if (face == Face.FIVEf)
+		else if (face == 5)
 			return 5;
-		else if (face == Face.SIXf)
+		else if (face == 6)
 			return 6;
 		else
 			return 0;
