@@ -63,12 +63,12 @@ void mousePressed()
 class Die //models one single dice cube
 {
 	final int dieSIZE = 75;
-	int X,Y;
+	int myX,myY;
 	Face face;
 	Die(int a, int b) //constructor
 	{
-		X = a;
-		Y = b;
+		myX = a;
+		myY = b;
 		face = Face.ONEf;
 		roll();
 	}
@@ -118,53 +118,53 @@ class Die //models one single dice cube
 	void showDie()
 	{
 		fill (255,255,255);
-		rect(X, Y, dieSIZE, dieSIZE);
+		rect(myX, myY, dieSIZE, dieSIZE);
 		fill (0,0,0);
 		if (face == Face.ONEf)
-			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
+			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 20, 20);
 		else if (face == Face.TWOf)
 		{
-			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
 		}
 		else if (face == Face.THREEf)
 		{
-			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
-			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 20, 20);
+			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
 		}
 		else if (face == Face.FOURf)
 		{
-			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+(dieSIZE*3/4), 20, 20);
 		}
 		else if (face == Face.FIVEf)
 		{
-			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
-			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 10, 10);
+			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+dieSIZE/2, myY+dieSIZE/2, 10, 10);
 		}
 		else if (face == Face.SIXf)
 		{
-			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/2, Y+dieSIZE/4, 20, 20);
-			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
-			ellipse(X+dieSIZE/2,Y+(dieSIZE*3/4),20,20);
+			ellipse(myX+dieSIZE/4, myY+dieSIZE/4, 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/2, myY+dieSIZE/4, 20, 20);
+			ellipse(myX+dieSIZE/4, myY+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+(dieSIZE*3/4), myY+(dieSIZE*3/4), 20, 20);
+			ellipse(myX+dieSIZE/2, myY+(dieSIZE*3/4),20,20);
 		}
 	}
 
 	boolean contain (int a, int b)
 	{
 		boolean inX = false, inY = false;
-		if (a >= X && a <= X+dieSIZE)
+		if (a >= myX && a <= myX+dieSIZE)
 			inX = true;
-		if (b >= Y && b <= Y+dieSIZE)
+		if (b >= myY && b <= myY+dieSIZE)
 			inY = true;
 		return (inX&&inY);
 	}
