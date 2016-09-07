@@ -1,11 +1,3 @@
-/*
-	#####
-	#000#
-	#000#
-	#000#
-	#####
-*/
-
 import java.util.*;
 Die[][] dice = new Die[3][3];
 PFont f;
@@ -128,53 +120,42 @@ class Die //models one single dice cube
 		fill (255,255,255);
 		rect(X, Y, dieSIZE, dieSIZE);
 		fill (0,0,0);
-		switch (face)
+		if (face == Face.ONEf)
+			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
+		else if (face == Face.TWOf)
 		{
-			case ONEf:
-			{
-				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
-				break;
-			}
-			case TWOf:
-			{
-				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-				break;
-			}
-			case THREEf:
-			{
-				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
-				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-				break;
-			}
-			case FOURf:
-			{
-				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
-				break;
-			}
-			case FIVEf:
-			{
-				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
-				ellipse(X+dieSIZE/2, Y+dieSIZE/2, 10, 10);
-				break;
-			}
-			case SIXf:
-			{
-				ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/2, Y+dieSIZE/4, 20, 20);
-				ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
-				ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
-				ellipse(X+dieSIZE/2,Y+(dieSIZE*3/4),20,20);
-				break;
-			}
+			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+		}
+		else if (face == Face.THREEf)
+		{
+			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 20, 20);
+			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+		}
+		else if (face == Face.FOURf)
+		{
+			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+		}
+		else if (face == Face.FIVEf)
+		{
+			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+			ellipse(X+dieSIZE/2, Y+dieSIZE/2, 10, 10);
+		}
+		else if (face == Face.SIXf)
+		{
+			ellipse(X+dieSIZE/4, Y+dieSIZE/4, 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/2, Y+dieSIZE/4, 20, 20);
+			ellipse(X+dieSIZE/4, Y+(dieSIZE*3/4), 20, 20);
+			ellipse(X+(dieSIZE*3/4), Y+(dieSIZE*3/4), 20, 20);
+			ellipse(X+dieSIZE/2,Y+(dieSIZE*3/4),20,20);
 		}
 	}
 
@@ -190,36 +171,19 @@ class Die //models one single dice cube
 
 	int value ()
 	{
-		switch (face)
-		{
-			case ONEf:
-			{
-				return 1;
-			}
-			case TWOf:
-			{
-				return 2;
-			}
-			case THREEf:
-			{
-				return 3;
-			}
-			case FOURf:
-			{
-				return 4;
-			}
-			case FIVEf:
-			{
-				return 5;
-			}
-			case  SIXf:
-			{
-				return 6;
-			}
-			default:
-			{
-				return 0;
-			}
-		}
+		if (face == Face.ONEf)
+			return 1;
+		else if (face == Face.TWOf)
+			return 2;
+		else if (face == Face.THREEf)
+			return 3;
+		else if (face == Face.FOURf)
+			return 4;
+		else if (face == Face.FIVEf)
+			return 5;
+		else if (face == Face.SIXf)
+			return 6;
+		else
+			return 0;
 	}
 }
