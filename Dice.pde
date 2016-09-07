@@ -46,6 +46,9 @@ void draw()
 }
 void mousePressed()
 {
+	boolean tru = true;
+	if (tru)
+		return;
 	boolean inDie = false;
 	int a = 0,b = 0;
 	for (int i = 0; i < 3; i++)
