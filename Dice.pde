@@ -46,7 +46,7 @@ void mousePressed()
 	int a = 0,b = 0;
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
-			if (dice[i][j].contain(mouseX,mouseY))
+			if (dice[i][j].containMe(mouseX,mouseY))
 			{
 				a = i;
 				b = j;
@@ -155,7 +155,7 @@ class Die //models one single dice cube
 		}
 	}
 
-	boolean contain (int a, int b)
+	boolean containMe (int a, int b)
 	{
 		boolean inX = false, inY = false;
 		if (a >= myX && a <= myX+dieSIZE)
