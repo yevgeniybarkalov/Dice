@@ -65,10 +65,10 @@ class Die //models one single dice cube
 	final int dieSIZE = 75;
 	int X,Y;
 	Face face;
-	Die(int X, int Y) //constructor
+	Die(int a, int b) //constructor
 	{
-		this.X = X;
-		this.Y = Y;
+		X = a;
+		Y = b;
 		face = Face.ONEf;
 		roll();
 	}
