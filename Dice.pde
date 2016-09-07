@@ -1,6 +1,6 @@
 import java.util.*;
 Die[][] dice = new Die[3][3];
-PFont f;
+PFont thisFont;
 public enum Face
 {
 	ONEf,TWOf,THREEf,FOURf,FIVEf,SIXf
@@ -17,7 +17,7 @@ void setup()
 			dice[i][j] = new Die(100+(i*100),100+(j*100));
 		}
 	}
-	f = createFont("Arial",50,true);
+	thisFont = createFont("Arial",16,true);
 	noLoop();
 }
 void draw()
@@ -30,23 +30,23 @@ void draw()
 			dice[i][j].showDie();
 		}
 	}
-	textFont(f,16);
-  	fill(0);
-  	int sum = 0;
+  	int totalValue = 0;
   	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			sum += dice[i][j].value();
+			totalValue += dice[i][j].value();
 		}
 	}
+	textFont(thisFont,16);
+  	fill(0);
   	textAlign(CENTER);
   	textSize(50);
-  	text("The total be " + sum,250,50);
+  	text("The total be " + totalValue,250,50);
 }
 void mousePressed()
 {
-	boolean in = false;
+	boolean inDie = false;
 	int a = 0,b = 0;
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
@@ -54,9 +54,9 @@ void mousePressed()
 			{
 				a = i;
 				b = j;
-				in = true;
+				inDie = true;
 			}
-	if (in)
+	if (inDie)
 		dice[a][b].roll();
 	redraw();
 }
